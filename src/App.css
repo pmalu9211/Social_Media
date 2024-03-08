@@ -1,0 +1,71 @@
+.Contain {
+  display: flex;
+}
+
+.Content {
+  width: 100%;
+}
+
+.sidebar {
+  height: 100% - 30px;
+}
+
+.Post {
+  margin: 30px 46px;
+  border: 2px solid #0d6efd !important;
+  border-radius: 10px !important;
+}
+
+.Title {
+  text-align: center;
+}
+
+.tag {
+  margin: 0px 2px;
+}
+
+.box {
+  display: flex;
+  min-height: 90%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 100%;
+}
+
+.Likebtn {
+  margin: 5px 0px;
+  width: 50px;
+  height: 40px;
+}
+
+.Likediv {
+  font-size: x-large;
+  display: flex;
+  align-items: center;
+  max-width: 150px;
+  border: 1px solid #0d6efd;
+  margin: 5px;
+  border-radius: 7px;
+  justify-content: center;
+}
+
+.Footer {
+  height: 30px;
+  position: absolute;
+  min-width: 100%;
+  left: 0;
+}
+
+.CreatePost {
+  border: 2px solid #0d6efd;
+  border-radius: 7px;
+  margin: 10px 20px;
+  padding: 20px;
+  width: 400px;
+}
+
+.Liked {
+  background-color: #60a0ff;
+}
