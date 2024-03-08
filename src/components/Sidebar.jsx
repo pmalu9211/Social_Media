@@ -11,7 +11,7 @@ let Sidebar = ({ selectedTab, setSelectedTab }) => {
         <svg className="bi pe-none me-2" width="40" height="32">
           <use xlinkHref="#bootstrap"></use>
         </svg>
-        <span className="fs-4">Socail Media</span>
+        <span className="fs-4">Social Media</span>
       </a>
       <hr />
       <ul className="nav nav-pills flex-column mb-auto">
@@ -23,7 +23,7 @@ let Sidebar = ({ selectedTab, setSelectedTab }) => {
         >
           <a
             href="#"
-            className={`nav-link ${
+            className={`nav-link hover-effect ${
               selectedTab === "Home" ? "active" : ""
             } text-white`}
             aria-current="page"
@@ -41,7 +41,7 @@ let Sidebar = ({ selectedTab, setSelectedTab }) => {
         >
           <a
             href="#"
-            className={`nav-link ${
+            className={`nav-link hover-effect ${
               selectedTab !== "Home" ? "active" : ""
             } text-white`}
           >

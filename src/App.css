@@ -2,6 +2,13 @@
   display: flex;
 }
 
+* {
+  font-family: "Noto Sans Display", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth";
+}
+
 .Content {
   width: 100%;
 }
@@ -9,15 +16,28 @@
 .sidebar {
   height: 100% - 30px;
 }
-
+.hover-effect:hover {
+  background-color: #112b53;
+}
 .Post {
   margin: 30px 46px;
   border: 2px solid #0d6efd !important;
   border-radius: 10px !important;
 }
 
+.Body {
+  font-family: "Major Mono Display", monospace;
+  font-weight: 900;
+  font-size: medium;
+  font-style: normal;
+}
+
 .Title {
   text-align: center;
+  font-family: "Comfortaa", sans-serif;
+  font-weight: 900;
+  font-size: xx-large;
+  font-style: normal;
 }
 
 .tag {
@@ -40,15 +60,35 @@
   height: 40px;
 }
 
+.Likediv:hover {
+  color: #0a3678;
+  background-color: #bdd7ff;
+  cursor: pointer;
+  transform: scale(1.06);
+}
+
 .Likediv {
+  transition: transform 0.3s cubic-bezier(0.61, 0, 0.28, 1.06),
+    background-color 0.3s cubic-bezier(0.61, 0, 0.28, 1.06),
+    color 0.3s cubic-bezier(0.61, 0, 0.28, 1.06);
   font-size: x-large;
   display: flex;
   align-items: center;
   max-width: 150px;
   border: 1px solid #0d6efd;
-  margin: 5px;
+  margin: 15px;
   border-radius: 7px;
   justify-content: center;
+}
+
+.deleteIcon {
+  transition: background-color 0.3s cubic-bezier(0.61, 0, 0.28, 1.06);
+  background-color: black;
+}
+
+.deleteIcon:hover {
+  background-color: red;
+  cursor: pointer;
 }
 
 .Footer {

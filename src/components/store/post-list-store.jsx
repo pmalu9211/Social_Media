@@ -20,19 +20,11 @@ let postListReducer = (postList, action) => {
 
 let defaultValue = [
   {
-    Title: "Hello",
-    Body: "I am gay",
-    Likes: 30,
-    Hashtags: ["Awosome", "Gay", "Love"],
-    id: "1",
-    userId: "pratham",
-  },
-  {
-    Title: "Davis",
-    Body: "I am not gay",
-    Likes: 1130,
-    Hashtags: ["Awosome", "NotGay", "Love"],
-    id: "2",
+    Title: "Sample post",
+    Body: "I am excited to built more things like this!!!",
+    Likes: 36,
+    Hashtags: ["Awosome", "Excited", "Happy"],
+    id: "-1",
     userId: "prathamalu",
   },
 ];
@@ -45,17 +37,21 @@ const PostListProvider = ({ children }) => {
   );
 
   const addPost = (Title, Body, Tags, UserID, Likes) => {
+    var regex = /^\d+$/;
+
     const obj = {
       action: "ADD",
       payload: {
         Title: Title,
         Body: Body,
-        Likes: Likes,
+
+        Likes: regex.test(Likes) ? parseInt(Likes) : 0,
         Hashtags: Tags.split(" "),
         id: count.current,
         userId: UserID,
       },
     };
+    console.log(obj.payload.Likes);
     count.current = count.current + 1;
     postListDispatch(obj);
   };
