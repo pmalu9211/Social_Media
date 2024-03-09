@@ -6,7 +6,20 @@
   font-family: "Noto Sans Display", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
-  font-variation-settings: "wdth";
+  transition: all 0.4s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.absolute {
+  /* position: static; */
+  position: absolute;
+  z-index: 2;
+}
+
+.GoSidebarCollapse {
+  color: white;
+  width: 80px;
+  height: 80px;
+  background-color: #212529;
 }
 
 .Content {
@@ -14,8 +27,17 @@
 }
 
 .sidebar {
-  height: 100% - 30px;
+  height: calc(100vh - 100px);
 }
+
+.visible-sidebar {
+  visibility: visible;
+}
+
+.hidden-sidebar {
+  margin-left: -250px;
+}
+
 .hover-effect:hover {
   background-color: #112b53;
 }
@@ -27,8 +49,9 @@
 
 .Body {
   font-family: "Major Mono Display", monospace;
-  font-weight: 900;
-  font-size: medium;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: larger;
   font-style: normal;
 }
 

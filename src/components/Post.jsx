@@ -1,4 +1,3 @@
-import { MdDeleteOutline } from "react-icons/md";
 import { PostList } from "./store/post-list-store";
 import { useContext, useState } from "react";
 import { AiTwotoneLike } from "react-icons/ai";
@@ -6,8 +5,8 @@ import { BiSolidLike } from "react-icons/bi";
 import { AiOutlineDelete } from "react-icons/ai";
 
 const Post = ({ postList }) => {
-  let [flag, setFlag] = useState(false);
-  let { deletePost } = useContext(PostList);
+  const [flag, setFlag] = useState(false);
+  const { deletePost } = useContext(PostList);
 
   return (
     <div className="card Post" style={{ width: "25rem" }}>

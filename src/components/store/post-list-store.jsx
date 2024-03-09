@@ -1,12 +1,18 @@
-import { createContext, useReducer, useRef } from "react";
+import { createContext, useReducer, useRef, useState } from "react";
+import { useMediaQuery } from "react-responsive";
 
 export const PostList = createContext({
+  selectedTab: "",
+  setSelectedTab: () => {},
   postList: [],
   addPost: () => {},
   deletePost: () => {},
+  isBig: false,
+  flag: false,
+  setFlag: () => {},
 });
 
-let postListReducer = (postList, action) => {
+const postListReducer = (postList, action) => {
   if (action.action === "ADD") {
     var regex = /\S/;
     if (regex.test(action.payload.Title)) return [...postList, action.payload];
@@ -18,7 +24,7 @@ let postListReducer = (postList, action) => {
   return postList;
 };
 
-let defaultValue = [
+const defaultValue = [
   {
     Title: "Sample post",
     Body: "I am excited to built more things like this!!!",
@@ -30,15 +36,18 @@ let defaultValue = [
 ];
 
 const PostListProvider = ({ children }) => {
+  const [selectedTab, setSelectedTab] = useState("Home");
+  const isBig = useMediaQuery({
+    query: "(min-width:760px)",
+  });
+  const [flag, setFlag] = useState(false);
   const count = useRef(0);
   const [postList, postListDispatch] = useReducer(
     postListReducer,
     defaultValue
   );
-
   const addPost = (Title, Body, Tags, UserID, Likes) => {
-    var regex = /^\d+$/;
-
+    const regex = /^\d+$/;
     const obj = {
       action: "ADD",
       payload: {
@@ -51,10 +60,10 @@ const PostListProvider = ({ children }) => {
         userId: UserID,
       },
     };
-    console.log(obj.payload.Likes);
     count.current = count.current + 1;
     postListDispatch(obj);
   };
+
   const deletePost = (id) => {
     const obj = {
       action: "DELETE",
@@ -64,7 +73,18 @@ const PostListProvider = ({ children }) => {
   };
 
   return (
-    <PostList.Provider value={{ postList, addPost, deletePost }}>
+    <PostList.Provider
+      value={{
+        selectedTab,
+        setSelectedTab,
+        postList,
+        addPost,
+        deletePost,
+        isBig,
+        flag,
+        setFlag,
+      }}
+    >
       {children}
     </PostList.Provider>
   );

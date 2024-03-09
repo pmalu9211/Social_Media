@@ -1,8 +1,14 @@
-let Sidebar = ({ selectedTab, setSelectedTab }) => {
+import { useContext } from "react";
+import { PostList } from "./store/post-list-store";
+
+const Sidebar = () => {
+  const { selectedTab, setSelectedTab, isBig, flag, setFlag } =
+    useContext(PostList);
   return (
     <div
-      className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark sidebar"
-      style={{ width: "280px" }}
+      className={`d-flex flex-column flex-shrink-0 p-3 text-bg-dark sidebar ${
+        isBig ? "" : "absolute mob-sidebar"
+      } ${flag || isBig ? "visible-sidebar" : "hidden-sidebar"}`}
     >
       <a
         href="/"
@@ -11,13 +17,17 @@ let Sidebar = ({ selectedTab, setSelectedTab }) => {
         <svg className="bi pe-none me-2" width="40" height="32">
           <use xlinkHref="#bootstrap"></use>
         </svg>
-        <span className="fs-4">Social Media</span>
+        <span className="fs-4">{flag || !isBig ? "" : "Social Media"}</span>
       </a>
       <hr />
       <ul className="nav nav-pills flex-column mb-auto">
         <li
           className="nav-item"
           onClick={() => {
+            if (!isBig) {
+              setFlag(!flag);
+            }
+
             setSelectedTab("Home");
           }}
         >
@@ -36,6 +46,10 @@ let Sidebar = ({ selectedTab, setSelectedTab }) => {
         </li>
         <li
           onClick={() => {
+            if (!isBig) {
+              setFlag(!flag);
+            }
+
             setSelectedTab("Create Post");
           }}
         >

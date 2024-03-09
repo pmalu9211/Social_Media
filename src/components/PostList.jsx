@@ -3,7 +3,7 @@ import Post from "./Post";
 import { PostList as gg } from "./store/post-list-store";
 
 const PostList = () => {
-  let { postList } = useContext(gg);
+  const { postList } = useContext(gg);
 
   return (
     <>

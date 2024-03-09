@@ -1,25 +1,25 @@
 import { useContext, useRef } from "react";
 import { PostList } from "./store/post-list-store";
 
-let CreatePost = () => {
-  let Title = useRef("");
-  let Body = useRef("");
-  let Tags = useRef("");
-  let UserID = useRef("");
-  let Likes = useRef(0);
-  let { addPost } = useContext(PostList);
+const CreatePost = () => {
+  const Title = useRef("");
+  const Body = useRef("");
+  const Tags = useRef("");
+  const UserID = useRef("");
+  const Likes = useRef(0);
+  const { addPost } = useContext(PostList);
 
-  let Submit = (event) => {
+  const Submit = (event) => {
     event.preventDefault();
-    let titleData = Title.current.value;
+    const titleData = Title.current.value;
     Title.current.value = "";
-    let bodyData = Body.current.value;
+    const bodyData = Body.current.value;
     Body.current.value = "";
-    let tagsData = Tags.current.value;
+    const tagsData = Tags.current.value;
     Tags.current.value = "";
-    let userIDData = UserID.current.value;
+    const userIDData = UserID.current.value;
     UserID.current.value = "";
-    let likesData = Likes.current.value;
+    const likesData = Likes.current.value;
     Likes.current.value = "";
     addPost(titleData, bodyData, tagsData, userIDData, likesData);
   };
@@ -33,9 +33,6 @@ let CreatePost = () => {
           ref={Title}
           placeholder="Title of the post"
         />
-        {/* <div id="emailHelp" className="form-text">
-          We'll never share your email with anyone else.
-        </div> */}
       </div>
       <div className="mb-3">
         <label className="form-label">Content</label>
