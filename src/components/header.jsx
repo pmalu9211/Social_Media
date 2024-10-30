@@ -1,6 +1,6 @@
 const Header = () => {
   return (
-      <header className="p-3 text-bg-dark" style={{ min-width: "380px" }}>
+    <header className="p-3 text-bg-dark min-w-[380px]">
       <div className="container">
         <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
           <a
