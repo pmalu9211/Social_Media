@@ -1,8 +1,4 @@
 {
-  "homepage": "http://pmalu9211.github.io/Social_Media/",
-  "name": "Social_Media",
-  "private": true,
-  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
